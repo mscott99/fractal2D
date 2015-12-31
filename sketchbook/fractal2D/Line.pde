@@ -21,7 +21,7 @@ class Line{
   }
   
   void evolve(int count){
- 
+   if(count>0){
   //line.vector.mult
   PVector point2 = PVector.add(point, PVector.mult(vector, 0.5));
   PVector subPoint1 = PVector.add(point, PVector.mult(vector, 0.25)); 
@@ -48,17 +48,14 @@ class Line{
   
   count--;
   //first.vector.mag()>=1
-  if(count>0){
+  
     first.evolve(count);
     second.evolve(count);
     third.evolve(count);
     fourth.evolve(count);
     
  }else{
-   first.display();
-   second.display();
-   third.display();
-   fourth.display();
+   display();
    //print(count);
 
  }
