@@ -4,8 +4,8 @@
 
 void setup(){
   size(1700,1000);
-  int size = 700;
- Line line = new Line(500, 550, size,0);
+  int size = 1000;
+ Line line = new Line(350, 600, size,0);
   
   line.evolve( (int)(log(size)/log(2)) );
   //this code block shows the inner repetitions
@@ -24,8 +24,9 @@ Line second = new Line(200+coefficient*0.5,800+-coefficient*(sqrt(3)/2),coeffici
     line = new Line(100+x*300, 800, 200,0);
     line.evolve(x);
   }
+   for(int x = 5; x<10; x++){
+    line = new Line(100+(x-5)*300, 975, 200,0);
+    line.evolve(x);
+  }
   
-}
-void draw(){
- 
 }
