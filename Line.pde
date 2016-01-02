@@ -24,34 +24,34 @@ class Line{
    if(count>0){
   //line.vector.mult
   PVector point2 = PVector.add(point, PVector.mult(vector, 0.5));
-  PVector subPoint1 = PVector.add(point, PVector.mult(vector, 0.25)); 
-  
+  PVector pointStartSlope = PVector.add(point, PVector.mult(vector, 0.333));
+  PVector pointEndSlope = PVector.add(point, PVector.mult(vector, 0.667));
   
   PVector gap = new PVector(vector.y, -vector.x);
   gap.normalize();
   //float gapping
-  gap.mult((vector.mag()/2)*(sqrt(3)/2));
-  PVector startPoint = PVector.add(subPoint1,gap );
-  PVector lines1 = PVector.sub( startPoint,point);
-  Line first = new Line(point, lines1.get());
+  gap.mult((vector.mag()/3)*(sqrt(3)/2));
+  PVector startPoint = PVector.add(point2,gap );
+  PVector lines1 = PVector.mult(vector.get(), 0.333);
+  Line first = new Line(point, lines1);
   
   
-  PVector lines2 = PVector.sub(point2, startPoint);
-  Line second = new Line(startPoint, lines2.get());
-  Line third = new Line(point2, lines1.get());
-  PVector secondStart = PVector.add(startPoint,vector.mult(0.5));
-  Line fourth = new Line(secondStart, lines2.get());
-  lines1 = null;
-  lines2 = null;
+  PVector lines2 = PVector.sub( startPoint,pointStartSlope);
+  PVector lines3 = PVector.sub(pointEndSlope, startPoint);
+ Line second = new Line(pointStartSlope, lines2.get());
+  Line third = new Line(startPoint, lines3.get());
+  PVector secondStart = PVector.add(startPoint,PVector.mult(vector,0.5));
+  Line fourth = new Line(pointEndSlope, lines1.get());
+  
 
   
   
-  count--;
+  
   //first.vector.mag()>=1
   
     first.evolve(count);
     second.evolve(count);
-    third.evolve(count);
+   third.evolve(count);
     fourth.evolve(count);
     
  }else{
@@ -61,4 +61,6 @@ class Line{
  }
   }
 }
+
+
   

@@ -6,8 +6,8 @@ void setup(){
   size(1700,1000);
   int size = 1000;
  Line line = new Line(350, 600, size,0);
+  int numTimes = (int)(log(size)/log(3));
   
-  line.evolve( (int)(log(size)/log(2)) );
   //this code block shows the inner repetitions
   /*
   int coefficient = 200;
