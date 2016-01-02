@@ -32,15 +32,16 @@ class Line{
   //float gapping
   gap.mult((vector.mag()/2)*(sqrt(3)/2));
   PVector startPoint = PVector.add(subPoint1,gap );
-  PVector lines1 = PVector.sub( startPoint,point);
-  Line first = new Line(point, lines1.get());
+  PVector lines1 = PVector.sub( startPoint,point).mult(-1);
+  PVector endPoint = PVector.add(point, vector);
+  Line first = new Line(startPoint, lines1.get());
   
-  
-  PVector lines2 = PVector.sub(point2, startPoint);
-  Line second = new Line(startPoint, lines2.get());
-  Line third = new Line(point2, lines1.get());
   PVector secondStart = PVector.add(startPoint,vector.mult(0.5));
-  Line fourth = new Line(secondStart, lines2.get());
+  PVector lines2 = PVector.sub(point2, startPoint).mult(-1);
+  Line second = new Line(point2, lines2.get());
+  Line third = new Line(secondStart, lines1.get());
+  
+  Line fourth = new Line(endPoint, lines2.get());
   lines1 = null;
   lines2 = null;
 
