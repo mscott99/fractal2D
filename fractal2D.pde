@@ -16,10 +16,10 @@ Line second = new Line(200+coefficient*0.5,800+-coefficient*(sqrt(3)/2),coeffici
  line.display();
  second.display();
  second.evolve(0);
-  line.evolve(0);
+  
   */
-  //line.display()
-
+  //line.display();
+line.evolve(numTimes);
   for(int x = 0; x<5; x++){
     line = new Line(100+x*300, 800, 200,0);
     line.evolve(x);

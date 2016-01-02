@@ -44,7 +44,7 @@ class Line{
   Line fourth = new Line(pointEndSlope, lines1.get());
   
 
-  
+  count --;
   
   
   //first.vector.mag()>=1
